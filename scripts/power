@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+function state {
+    STATE=$(powerprofilesctl get | awk '{print $4}')
+    if   [[ $STATE == 'power-saver' ]]; then echo 'off'
+    elif [[ $STATE == 'balanced' ]]; then echo 'off'
+    else echo 'on'
+    fi
+}
+
+function icon {
+    STATE=$(powerprofilesctl get | awk '{print $4}')
+    if [[ $STATE == 'power-saver' ]]; then echo '󰾆'; fi
+    if [[ $STATE == 'balanced' ]]; then echo '󰾅'; fi
+    if [[ $STATE == 'performance' ]]; then echo '󰓅'; fi
+}
+
+function toggle {
+    STATE=$(state)
+    if [[ $STATE == 'off' ]]; then
+        powerprofilesctl set performance
+    else
+        powerprofilesctl set power-saver
+    fi
+
+    eww update power="$(get)"
+}
+
+function get {
+    echo "{
+        \"state\": \"$(state)\",
+        \"icon\": \"$(icon)\"
+    }"
+}
+
+if [[ $1 == 'get' ]]; then get; fi
+if [[ $1 == 'toggle' ]]; then toggle; fi

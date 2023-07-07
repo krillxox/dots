@@ -1,0 +1,31 @@
+(include "./left.yuck") 
+(include "./center.yuck") 
+(include "./right.yuck") 
+
+(defwidget bar [] (centerbox
+    :orientation "v"
+    :class "hpanel ${workspaces.active_empty ? "floating" : ""}"
+    (box
+        :class "topBar"
+        :space-evenly false
+        :valign "start"
+        :orientation "h"
+        (panel_launcher)
+        (panel_workspaces :orientation "h")
+    )
+    (box
+        :class "centerBar"
+        :orientation "h"
+        :space-evenly false
+        (panel_media)
+   )
+    (box
+        :class "rightBar"
+        :space-evenly false
+        :valign "end"
+        :orientation "h"
+        (panel_system_indicators :orientation "h")
+        (panel_clock)
+        (panel_powermenu)
+    )
+))
