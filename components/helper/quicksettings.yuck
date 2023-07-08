@@ -1,7 +1,7 @@
 (include "./components/helper/toggles.yuck")
 (include "./components/helper/sysprogress.yuck")
 (include "./components/helper/sys_sliders.yuck")
-(include "./components/helper/media.yuck")
+(include "./components/helper/mediaMain.yuck")
 
 (defwidget quick_toggles [] (box
     :class "widget toggles"
