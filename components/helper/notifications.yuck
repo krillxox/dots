@@ -11,3 +11,14 @@
         )
     )
 )
+
+(defwindow notifications_popup
+    :monitor 0
+    :stacking "overlay"
+    :namespace "eww_notifications"
+    :focusable false
+    :geometry (geometry :width  "0%"
+                        :height "0%"
+                        :anchor "top center")(notifications_popup))
+
+

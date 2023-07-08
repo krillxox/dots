@@ -47,3 +47,17 @@
         (powerbutton :action "shutdown now"                                  :icon "shutdown" :label "Shutdown")
     )
 ))
+
+(defwindow powermenu
+    :monitor 0
+    :stacking "fg"
+    :focusable true
+    :namespace "eww_powermenu"
+    :geometry (geometry :width  "120%"
+                        :height "120%"
+                        :anchor "center center")
+    (eventbox
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu powermenu"
+        (powermenu)))
+
+
