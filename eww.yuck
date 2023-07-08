@@ -1,11 +1,11 @@
 (include "./components/bar.yuck")
-;(include "./components/helper/app_launcher.yuck")
-;(include "./components/helper/notifications.yuck")
-;(include "./components/helper/noti_center.yuck")
-;(include "./components/helper/media.yuck")
-;(include "./components/helper/quicksettings.yuck")
-;(include "./components/helper/powermenu.yuck")
-;
+(include "./components/helper/app_launcher.yuck")
+(include "./components/helper/notifications.yuck")
+(include "./components/helper/noti_center.yuck")
+(include "./components/helper/media.yuck")
+(include "./components/helper/quicksettings.yuck")
+(include "./components/helper/powermenu.yuck")
+
 (defvar     bluetooth       "{}")
 (defvar     network         "{}")
 (defvar     media           "{}")
@@ -23,8 +23,8 @@
 (defpoll    night_light :interval "3s" :initial "{}" `scripts/night_light get`)
 (defpoll    brightness  :interval "3s" :initial "{}" `scripts/brightness get`)
 
-;(deflisten  events      :initial "[]" `scripts/events get`)
-;(defpoll    weather     :interval "3m" :initial "[]" `scripts/weather`)
+(deflisten  events      :initial "[]" `scripts/events get`)
+(defpoll    weather     :interval "3m" :initial "[]" `scripts/weather`)
 
 (defpoll    panel_clock :interval "5s" `date "+%H:%M  |  %b. %d. %A"`)
 (defpoll    hour        :interval "5s" `date "+%H"`)
@@ -61,59 +61,59 @@
 ;                        :height "1%"
 ;                        :anchor "center right")(osd))
 ;
-;(defwindow powermenu
-;    :monitor 0
-;    :stacking "fg"
-;    :focusable true
-;    :namespace "eww_powermenu"
-;    :geometry (geometry :width  "120%"
-;                        :height "120%"
-;                        :anchor "center center")
-;    (eventbox
-;        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu powermenu"
-;        (powermenu)))
-;
-;(defwindow calendar
-;    :monitor 0
-;    :stacking "fg"
-;    :focusable false
-;    :geometry (geometry :width  "100%"
-;                        :height "100%"
-;                        :anchor "center left")
-;    (eventbox
-;        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
-;    (datemenu :valign "center" :halign "start")))
-;
-;(defwindow media
-;    :monitor 0
-;    :stacking "fg"
-;    :focusable false
-;    :geometry (geometry :width  "100%"
-;                        :height "100%"
-;                        :anchor "center left")
-;    (box
-;        :space-evenly false
-;        (media :valign "center" :halign "start")
-;        (eventbox
-;            :hexpand true
-;            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu media")
-;    ))
-;
-;(defwindow quicksettings
-;    :monitor 0
-;    :stacking "fg"
-;    :focusable false
-;    :geometry (geometry :width  "100%"
-;                        :height "100%"
-;                        :anchor "center left")
-;    (box
-;        :space-evenly false
-;        (notifications_center :valign "fill" :halign "start")
-;        (eventbox
-;            :hexpand true
-;            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu quicksettings")
-;    ))
-;
+(defwindow powermenu
+    :monitor 0
+    :stacking "fg"
+    :focusable true
+    :namespace "eww_powermenu"
+    :geometry (geometry :width  "120%"
+                        :height "120%"
+                        :anchor "center center")
+    (eventbox
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu powermenu"
+        (powermenu)))
+
+(defwindow calendar
+    :monitor 0
+    :stacking "fg"
+    :focusable false
+    :geometry (geometry :width  "100%"
+                        :height "100%"
+                        :anchor "center left")
+    (eventbox
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
+    (datemenu :valign "center" :halign "start")))
+
+(defwindow media
+    :monitor 0
+    :stacking "fg"
+    :focusable false
+    :geometry (geometry :width  "100%"
+                        :height "100%"
+                        :anchor "center left")
+    (box
+        :space-evenly false
+        (media :valign "center" :halign "start")
+        (eventbox
+            :hexpand true
+            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu media")
+    ))
+
+(defwindow quicksettings
+    :monitor 0
+    :stacking "fg"
+    :focusable false
+    :geometry (geometry :width  "100%"
+                        :height "100%"
+                        :anchor "center left")
+    (box
+        :space-evenly false
+        (notifications_center :valign "fill" :halign "start")
+        (eventbox
+            :hexpand true
+            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu quicksettings")
+    ))
+
 ;(defwindow dock
 ;    :monitor 0
 ;    :stacking "fg"
@@ -122,26 +122,26 @@
 ;    :geometry (geometry :width  "1%"
 ;                        :height "1%"
 ;                        :anchor "bottom center")(dock))
-;
-;(defwindow notifications_popup
-;    :monitor 0
-;    :stacking "overlay"
-;    :namespace "eww_notifications"
-;    :focusable false
-;    :geometry (geometry :width  "0%"
-;                        :height "0%"
-;                        :anchor "top center")(notifications_popup))
-;
-;(defwindow app_launcher
-;    :monitor 0
-;    :stacking "overlay"
-;    :namespace "eww_applauncher"
-;    :focusable true
-;    :geometry (geometry :width  "100%"
-;                        :height "100%"
-;                        :anchor "center center")
-;    (box
-;        (eventbox
-;            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu app_launcher"
-;            (app_launcher :valign "center" :halign "center"))
-;    ))
+
+(defwindow notifications_popup
+    :monitor 0
+    :stacking "overlay"
+    :namespace "eww_notifications"
+    :focusable false
+    :geometry (geometry :width  "0%"
+                        :height "0%"
+                        :anchor "top center")(notifications_popup))
+
+(defwindow app_launcher
+    :monitor 0
+    :stacking "overlay"
+    :namespace "eww_applauncher"
+    :focusable true
+    :geometry (geometry :width  "100%"
+                        :height "100%"
+                        :anchor "center center")
+    (box
+        (eventbox
+            :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu app_launcher"
+            (app_launcher :valign "center" :halign "center"))
+    ))
