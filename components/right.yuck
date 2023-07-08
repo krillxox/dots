@@ -1,5 +1,5 @@
-(include "./helper/quicksettings.yuck")
-(include "./helper/powermenu.yuck")
+(include "./compoents/helper/quicksettings.yuck")
+(include "./components/helper/powermenu.yuck")
 
 (defwidget panel_window [angle] (box :class "button-bin"
     (button :class "button window" 
@@ -10,14 +10,14 @@
     )
 ))
 
-;(defwidget panel_separator [orientation dots visible] (box
-;    :orientation orientation
-;    :class "separator"
-;    :space-evenly false
-;    :visible visible
-;    (for dot in dots
-;        (box :class "dot" :halign "center" :hexpand true :valign "center"))))
-;
+(defwidget panel_separator [orientation dots visible] (box
+    :orientation orientation
+    :class "separator"
+    :space-evenly false
+    :visible visible
+    (for dot in dots
+        (box :class "dot" :halign "center" :hexpand true :valign "center"))))
+
 
 (defwidget controls_slider [control reveal value onchange icon orientation transition] (eventbox
     :onscroll "${EWW_CONFIG_DIR}/scripts/${control} {}"

@@ -1,4 +1,11 @@
-(include "./yuck/components/bar.yuck")
+(include "./components/bar.yuck")
+(include "./components/helper/app_launcher.yuck")
+(include "./components/helper/notifications.yuck")
+(include "./components/helper/noti_cneter.yuck")
+(include "./components/helper/media.yuck")
+(include "./components/helper/quicksettings.yuck")
+(include "./components/helper/powermenu.yuck")
+
 (defvar     bluetooth       "{}")
 (defvar     network         "{}")
 (defvar     media           "{}")
@@ -25,10 +32,9 @@
 (defpoll    date        :interval "5s" `date "+%b. %d. %A"`)
 (defpoll    uptime      :interval "60s" "uptime | awk '{print $3}' | tr ',' ' '")
 
-(defvar real_name "Demeter")
-(defvar user_name "@Aylur")
+(defvar real_name "Avneesh")
+(defvar user_name "@krillxox")
 
-(include "./yuck/components/bar.yuck")
 
 (defwindow bar
     :monitor 0
@@ -36,25 +42,25 @@
     :stacking "fg"
     :focusable false
     :geometry (geometry :width "100%"
-                        :height "10%"
+                        :height "5%"
                         :anchor "top center")(bar))
-(defwindow desktop
-    :monitor 0
-    :stacking "bottom"
-    :focusable false
-    :geometry (geometry :width  "100%"
-                        :height "100%"
-                        :anchor "bottom right")(desktop))
-
-(defwindow osd
-    :monitor 0
-    :stacking "fg"
-    :namespace "eww_osd"
-    :focusable false
-    :geometry (geometry :width "1%"
-                        :height "1%"
-                        :anchor "center right")(osd))
-
+;(defwindow desktop
+;    :monitor 0
+;    :stacking "bottom"
+;    :focusable false
+;    :geometry (geometry :width  "100%"
+;                        :height "100%"
+;                        :anchor "bottom right")(desktop))
+;
+;(defwindow osd
+;    :monitor 0
+;    :stacking "fg"
+;    :namespace "eww_osd"
+;    :focusable false
+;    :geometry (geometry :width "1%"
+;                        :height "1%"
+;                        :anchor "center right")(osd))
+;
 (defwindow powermenu
     :monitor 0
     :stacking "fg"
@@ -67,17 +73,17 @@
         :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu powermenu"
         (powermenu)))
 
-(defwindow calendar
-    :monitor 0
-    :stacking "fg"
-    :focusable false
-    :geometry (geometry :width  "100%"
-                        :height "100%"
-                        :anchor "center left")
-    (eventbox
-        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
-    (datemenu :valign "center" :halign "start")))
-
+;(defwindow calendar
+;    :monitor 0
+;    :stacking "fg"
+;    :focusable false
+;    :geometry (geometry :width  "100%"
+;                        :height "100%"
+;                        :anchor "center left")
+;    (eventbox
+;        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
+;    (datemenu :valign "center" :halign "start")))
+;
 (defwindow media
     :monitor 0
     :stacking "fg"
@@ -108,15 +114,15 @@
             :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu quicksettings")
     ))
 
-(defwindow dock
-    :monitor 0
-    :stacking "fg"
-    :namespace "eww_dock"
-    :focusable false
-    :geometry (geometry :width  "1%"
-                        :height "1%"
-                        :anchor "bottom center")(dock))
-
+;(defwindow dock
+;    :monitor 0
+;    :stacking "fg"
+;    :namespace "eww_dock"
+;    :focusable false
+;    :geometry (geometry :width  "1%"
+;                        :height "1%"
+;                        :anchor "bottom center")(dock))
+;
 (defwindow notifications_popup
     :monitor 0
     :stacking "overlay"
