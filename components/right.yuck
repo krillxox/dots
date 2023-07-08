@@ -1,4 +1,4 @@
-(include "./compoents/helper/quicksettings.yuck")
+(include "./components/helper/quicksettings.yuck")
 (include "./components/helper/powermenu.yuck")
 
 (defwidget panel_window [angle] (box :class "button-bin"

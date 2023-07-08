@@ -3,7 +3,6 @@
 (include "./components/right.yuck") 
 
 (defwidget bar [] (centerbox
-    :orientation "v"
     :class "hpanel ${workspaces.active_empty ? "floating" : ""}"
     (box
         :class "left"

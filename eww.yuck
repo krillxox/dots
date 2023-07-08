@@ -1,7 +1,7 @@
 (include "./components/bar.yuck")
 (include "./components/helper/app_launcher.yuck")
 (include "./components/helper/notifications.yuck")
-(include "./components/helper/noti_cneter.yuck")
+(include "./components/helper/noti_center.yuck")
 (include "./components/helper/media.yuck")
 (include "./components/helper/quicksettings.yuck")
 (include "./components/helper/powermenu.yuck")
