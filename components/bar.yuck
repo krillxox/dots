@@ -17,6 +17,7 @@
    )
     (box
         :class "right"
+        :halign "end"
         :space-evenly false
         (panel_system_indicators :orientation "h")
         (panel_clock)
