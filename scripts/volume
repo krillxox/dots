@@ -13,6 +13,10 @@ function level {
     echo $(pactl get-sink-volume @DEFAULT_SINK@ | grep Volume | awk '{print $5}' | tr % " ")
 }
 
+function micLevel {
+    result=$(($(wpctl status | grep -A 2 'Sources' | grep 'Stereo' | awk '{print $9}' | tr -d \]) * 100))
+    echo $result | tr -d \.
+}
 
 function lower {
     pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -54,6 +58,20 @@ function mute_toggle {
 }
 
 function set {
+    pactl set-sink-volume @DEFAULT_SINK@ $1"%"
+    eww update volume="$(get)"
+}
+
+function micSet {
+    id=wpctl status | grep -A 2 'Sources' | grep 'Stereo' | awk '{print $3}' | tr -d \].
+    if [[ ${1:0:1} == '-' ]]; then
+        sign="-"
+        value="${1:1}"
+    else [[ ${1:0:1} == '+' ]]; then
+        sign="+"
+        value="${1:1}"
+    fi
+    wpctl set-volume ${id} ${value}%${sign} 
     pactl set-sink-volume @DEFAULT_SINK@ $1"%"
     eww update volume="$(get)"
 }

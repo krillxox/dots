@@ -31,6 +31,11 @@
         :level {volume.level}
         :onchange "${EWW_CONFIG_DIR}/scripts/volume set {}"
         :onclick "${EWW_CONFIG_DIR}/scripts/launcher pavu")
+     (sys_slider
+        :icon {volume.mute.icon}
+        :level {micVolume.level}
+        :onchange "${EWW_CONFIG_DIR}/scripts/micVolume set {}"
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher pavu")
     (sys_slider
         :icon {brightness.screen.icon}
         :level {brightness.screen.level}
