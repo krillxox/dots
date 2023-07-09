@@ -5,6 +5,7 @@
 (include "./components/helper/media.yuck")
 (include "./components/helper/quicksettings.yuck")
 (include "./components/helper/powermenu.yuck")
+(include "./components/helper/osd.yuck")
 
 (defvar     bluetooth       "{}")
 (defvar     network         "{}")
@@ -52,15 +53,15 @@
 ;                        :height "100%"
 ;                        :anchor "bottom right")(desktop))
 ;
-;(defwindow osd
-;    :monitor 0
-;    :stacking "fg"
-;    :namespace "eww_osd"
-;    :focusable false
-;    :geometry (geometry :width "1%"
-;                        :height "1%"
-;                        :anchor "center right")(osd))
-;
+(defwindow osd
+    :monitor 0
+    :stacking "fg"
+    :namespace "eww_osd"
+    :focusable false
+    :geometry (geometry :width "1%"
+                        :height "1%"
+                        :anchor "top center")(osd))
+
 (defwindow powermenu
     :monitor 0
     :stacking "fg"
@@ -77,9 +78,8 @@
     :monitor 0
     :stacking "fg"
     :focusable false
-    :geometry (geometry :width  "100%"
-                        :height "100%"
-                        :anchor "center left")
+    :geometry (geometry :height "100%"
+                        :anchor "top right")
     (eventbox
         :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
     (datemenu :valign "center" :halign "start")))
@@ -90,7 +90,7 @@
     :focusable false
     :geometry (geometry :width  "100%"
                         :height "100%"
-                        :anchor "center left")
+                        :anchor "center")
     (box
         :space-evenly false
         (media :valign "center" :halign "start")
@@ -103,9 +103,8 @@
     :monitor 0
     :stacking "fg"
     :focusable false
-    :geometry (geometry :width  "100%"
-                        :height "100%"
-                        :anchor "center left")
+    :geometry (geometry :height "100%"
+                        :anchor "top right")
     (box
         :space-evenly false
         (notifications_center :valign "fill" :halign "start")
@@ -130,7 +129,7 @@
     :focusable false
     :geometry (geometry :width  "0%"
                         :height "0%"
-                        :anchor "top center")(notifications_popup))
+                        :anchor "top right")(notifications_popup))
 
 (defwindow app_launcher
     :monitor 0
