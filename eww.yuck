@@ -103,10 +103,11 @@
     :monitor 0
     :stacking "fg"
     :focusable false
-    :geometry (geometry :height "100%"
+    :geometry (geometry :height "50%"
                         :anchor "top right")
     (box
         :space-evenly false
+        (quicksettings :valign "start" :halign "start")
         (notifications_center :valign "fill" :halign "start")
         (eventbox
             :hexpand true
